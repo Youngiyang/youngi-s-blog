@@ -1,77 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>首页</title>
-	<link rel="stylesheet" href="css/uikit.min.css" />
-	<%= stylesheet_link_tag :all %>
-    <script src="js/jquery.js"></script>
-    <script src="js/uikit.min.js"></script>
+	
+<% @articles.each do |article| %>
+<div class="content_l uk-width-7-10" style="float:left">		
+	<div class="article">
+		<div class="articleTitle">
+			<h5><a href="<%= article_path(article) %>"><%= article.title %></a></h5>
+			<p><%= article.created_at.strftime('%B %e,%Y') %></p>
+		</div>
+		<div class="articleContent">
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= article.text.html_safe() %></p>
+		</div>
+		<div class="readMore uk-container-center">
+			<a href="<%= article_path(article) %>" class="uk-icon-angle-double-right"></a>
+		</div>				
+	</div>	
+</div>
+<% end %>
+<div class="uk-width-7-10 paginate" style="color:black;float:left">
+    <%= will_paginate @articles, :container => false %>
+ </div>
+	
 
-</head>
-<body>
-	<div class="youngi_index">
-	<div class="header uk-container-center uk-width-7-10">
-		<div class="header_img">
-			<a href="<%= root_path %>"><%=image_tag 'index.png', alt: "图片", class: "logo_img" %></a>
-		</div>
-		<div class="header_nav">
-			<ul class="nav">
-				<li class="uk-width-1-4"><a href="">首页</a></li>
-				<li class="uk-width-1-4"><a href="">技术</a></li>
-				<li class="uk-width-1-4"><a href="">生活</a></li>
-				<li class="uk-width-1-4"><a href="">关于我</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="content uk-container-center uk-width-7-10">
-			<div class="content_r uk-width-3-10" style="float:right">
-			<div class="notice">
-				<div class="notice_top">
-					<ul>
-						<li class="list1"></li>
-						<li class="list2"><span>公告</span></li>
-					</ul>
-				</div>
-				<div class="notice_content">
-					<span>你们已经被包围了！你们已经被包围了你们已经被包围了你们已经被包围了你们已经被包围了你们已经被包围了你们已经被包围了你们已经被包围了你们已经被包围了你们已经被包围了。</span>
-				</div>
-			</div>
-			<div class="notice">
-				<div class="notice_top">
-					<ul>
-						<li class="list1"></li>
-						<li class="list2">友情链接</li>
-					</ul>
-				</div>
-				<div class="notice_content">
-						<ul>
-							<li><span>百度：</span><a href="www.baidu.com">www.baidu.com</a></li>
-							<li><span>百度：</span><a href="www.baidu.com">www.baidu.com</a></li>
-							<li><span>百度：</span><a href="www.baidu.com">www.baidu.com</a></li>
-							<li><span>百度：</span><a href="www.baidu.com">www.baidu.com</a></li>
-						</ul>
-				</div>
-			</div>
-		</div>
-			<% @articles.each do |article| %>
-			<div class="content_l uk-width-7-10" style="float:left">		
-				<div class="article">
-					<div class="articleTitle">
-						<h5><%= article.title %></h5>
-						<p><%= article.created_at.strftime('%B %e,%Y') %></p>
-						</div>
-					<div class="articleContent">
-						<p><%= article.text %></p>
-					</div>
-					<div class="readMore uk-container-center">
-						<a href="<%= article_path(article) %>" class="uk-icon-angle-double-right"></a>
-					</div>				
-				</div>				
-			</div>
-		<% end %>
-		
-	</div>
-</div>	
-</body>
-</html>
+

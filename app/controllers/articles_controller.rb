@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	
 	  http_basic_authenticate_with name: "youngi", password: "q1234567", except: [:index, :show]
+    skip_before_filter :verify_authenticity_token, only: [:destroy]
 
 	def new
 		@article = Article.new
@@ -20,8 +21,8 @@ class ArticlesController < ApplicationController
  		@article = Article.find(params[:id])
 	end
 	def index
-		@articles =Article.all
-		
+		# @articles =Article.all
+    @articles = Article.order('id DESC').paginate(:page => params[:page],:per_page => 10)  
 	end
 	def edit
   		@article = Article.find(params[:id])

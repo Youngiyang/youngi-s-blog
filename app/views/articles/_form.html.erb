@@ -1,4 +1,5 @@
-<%= form_for :article, url: articles_path do |f| %>
+<div class="uk-width-7-10">
+<%= form_for @article do |f| %>
   <% if @article.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@article.errors.count, "error") %> prohibited
@@ -11,16 +12,16 @@
   </div>
   <% end %>
   <p>
-    <%= f.label :title %><br>
+    <%= f.label :标题 %><br>
     <%= f.text_field :title %>
   </p>
+ <p>
+    <%= f.label :内容 %><br>
+    <%= f.text_area :text, "data-uk-htmleditor" => true %>
+ </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
+    <%= f.submit  class: 'uk-button-success' %>
   </p>
 <% end %>
+</div>

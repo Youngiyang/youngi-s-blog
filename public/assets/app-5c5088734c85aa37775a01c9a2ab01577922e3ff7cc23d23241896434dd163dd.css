@@ -31,10 +31,9 @@ a:hover{
 }
 .content_r{
 	float: right;
-/*	position: fixed;*/
 }
 .article{
-	margin-top: 40px;
+	margin-top: 45px;
 	border: solid 1px;
 	padding: 15px;
 }
@@ -51,10 +50,9 @@ a:hover{
 	text-decoration: none;
 }
 .notice{
-	margin-top: 35px;
+	margin-top: 45px;
 	margin-left: 68px;
 	height: auto;
-	position: relative;
 }
 .notice_top{
 	text-align: center;
@@ -111,7 +109,4 @@ a:hover{
 .articleTitle a:hover{
 	color: grey;
 	text-decoration: none;
-}
-.uk-htmleditor-navbar{
-	height: 40px;
 }

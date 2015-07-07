@@ -8,4 +8,21 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( uikit.min.js )
+Rails.application.config.assets.precompile += %w( application.js )
+Rails.application.config.assets.precompile += %w( uikit.min.css )
+Rails.application.config.assets.precompile += %w( app.css )
+Rails.application.config.assets.precompile += %w( fonts/* )
+Rails.application.config.assets.precompile += %w( jquery.js )
+Rails.application.config.assets.precompile += %w( codemirror.css )
+Rails.application.config.assets.precompile += %w( codemirror.js )
+Rails.application.config.assets.precompile += %w( markdown.js )
+Rails.application.config.assets.precompile += %w( overlay.js )
+Rails.application.config.assets.precompile += %w( xml.js )
+Rails.application.config.assets.precompile += %w( gfm.js )
+Rails.application.config.assets.precompile += %w( marked.js )
+Rails.application.config.assets.precompile += %w( htmleditor.css )
+Rails.application.config.assets.precompile += %w( htmleditor.js )
+
+
+
