@@ -1,0 +1,148 @@
+<%= stylesheet_link_tag  'timeline.css', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag  'modernizr.js', media: 'all', 'data-turbolinks-track' => true %>
+
+<body>
+	<section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<i class="uk-icon-circle" style="position: absolute;top: 0;left: 420px;"></i>
+			</div><!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h3>关于作者</h3>
+				<p>茫茫码农中一枚前端打码少年</p>
+				<!-- <a href="http://www.sucaijiayuan.com" class="cd-read-more">阅读更多</a> -->
+				<!-- <span class="cd-date">Jan 14</span> -->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<i class="uk-icon-circle" style="position: absolute;top: 0;left: 420px;"></i>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h3>工作经历</h3>
+				<p>
+					<ul style="list-style:none;padding:0;">
+				<li><span>2012.2-2013.8:</span>厦门亿联网络股份有限公司</li>
+				<li><span>2014.11-2015.3:</span>东方博雅科技有限公司</li>
+				<li><span>2015.3-至今:</span>创业中---优来吧科技有限公司</li>
+					</ul>
+				</p>
+				<!-- <a href="" class="cd-read-more">阅读更多</a> -->
+				<!-- <span class="cd-date">111</span> -->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<i class="uk-icon-circle" style="position: absolute;top: 0;left: 420px;"></i>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+					<h3>擅长技术</h3>
+					<p>
+						<ul style="list-style:none;padding:0;">
+							<li><span>xxxxx</span></li>
+							<li><span>xxxxx</span></li>
+							<li><span>xxxxx</span></li>
+							<li><span>xxxxx</span></li>
+							<li><span>xxxxx</span></li>
+						</ul>
+					</p>
+				<!-- <a href="http://www.sucaijiayuan.com" class="cd-read-more">阅读更多</a> -->
+				<!-- <span class="cd-date">Jan 24</span> -->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<i class="uk-icon-circle" style="position: absolute;top: 0;left: 420px;"></i>
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h3>联系我</h3>
+				<p>
+					<ul style="list-style:none;padding:0;">
+						<li><a href="https://github.com/Youngiyang/" class="uk-icon-button uk-icon-github uk-icon-spin"></a><a href="https://github.com/Youngiyang/">@Youngiyang</a></li>
+						<li><a href="" class="uk-icon-button uk-icon-qq"></a>405826336</li>
+						<li><a href="" class="uk-icon-button uk-icon-envelope-square"></a>youngiyang@163.com</li>
+
+					</ul>
+				</p>
+				<!-- <a href="http://www.sucaijiayuan.com" class="cd-read-more">阅读更多</a> -->
+				<!-- <span class="cd-date">Feb 14</span> -->
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+	</section> <!-- cd-timeline -->
+	
+<script>
+$(function(){
+	var $timeline_block = $('.cd-timeline-block');
+	//hide timeline blocks which are outside the viewport
+	$timeline_block.each(function(){
+		if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+			$(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+		}
+	});
+	//on scolling, show/animate timeline blocks when enter the viewport
+	$(window).on('scroll', function(){
+		$timeline_block.each(function(){
+			if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+				$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+			}
+		});
+	});
+});
+</script>
+
+</body>
+
+
+
+
+
+
+<!-- <div class="content " style="padding-top:30px;">
+<div class="content_left uk-width-5-10">
+	<div class="about_au" >
+		<h3>关于作者</h3>
+		<p>茫茫码农中一枚前端打码少年</p>
+	</div>
+	<div class="work_experience" >
+		<h3>工作经历</h3>
+		<p>
+			<ul style="list-style:none;padding:0;">
+				<li><span>2012.2-2013.8:</span>厦门亿联网络股份有限公司</li>
+				<li><span>2014.11-2015.3:</span>东方博雅科技有限公司</li>
+				<li><span>2015.3-至今:</span>创业中---优来吧科技有限公司</li>
+			</ul>
+		</p>
+	</div>
+</div>
+<div class="content_right uk-width-5-10">
+	<div class="technology" >
+		<h3>擅长技术</h3>
+		<p>
+			<ul style="list-style:none;padding:0;">
+				<li><span>xxxxx</span></li>
+				<li><span>xxxxx</span></li>
+				<li><span>xxxxx</span></li>
+				<li><span>xxxxx</span></li>
+				<li><span>xxxxx</span></li>
+			</ul>
+		</p>
+	</div>
+	<div class="contact_me" >
+		<h3>联系我</h3>
+		<p>
+			<ul style="list-style:none;padding:0;">
+				<li><a href="" class="uk-icon-button uk-icon-github"></a>https://github.com/Youngiyang</li>
+				<li><a href="" class="uk-icon-button uk-icon-qq"></a>405826336</li>
+			</ul>
+		</p>
+	</div>
+</div>
+</div> -->

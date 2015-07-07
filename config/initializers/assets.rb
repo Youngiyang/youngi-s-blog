@@ -23,6 +23,7 @@ Rails.application.config.assets.precompile += %w( gfm.js )
 Rails.application.config.assets.precompile += %w( marked.js )
 Rails.application.config.assets.precompile += %w( htmleditor.css )
 Rails.application.config.assets.precompile += %w( htmleditor.js )
-
+Rails.application.config.assets.precompile += %w( timeline.css )
+Rails.application.config.assets.precompile += %w( modernizr.js )
 
 
