@@ -11,14 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629082621) do
+ActiveRecord::Schema.define(version: 20150713080746) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "classify_id"
+    t.integer  "category_id"
+  end
+
+  add_index "articles", ["category_id"], name: "index_articles_on_category_id"
+  add_index "articles", ["classify_id"], name: "index_articles_on_classify_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "classifies", force: :cascade do |t|
+    t.string   "type"
+    t.text     "body"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "classifies", ["article_id"], name: "index_classifies_on_article_id"
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -29,5 +50,15 @@ ActiveRecord::Schema.define(version: 20150629082621) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "type"
+    t.text     "body"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["article_id"], name: "index_tags_on_article_id"
 
 end
